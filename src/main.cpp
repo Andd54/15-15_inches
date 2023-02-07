@@ -19,6 +19,7 @@
 #include "vex.h"
 #include<autonomous.h>
 using namespace vex;
+<<<<<<< HEAD
 competition Competition;
 void autonomous(void){
   //insert function in autonomous.h here
@@ -38,4 +39,12 @@ int main() {
   while(true){
     wait(100,msec);
   }
+=======
+
+int main() {
+  // Initializing Robot Configuration. DO NOT REMOVE!
+  vexcodeInit();
+  //fun update yay wow
+  
+>>>>>>> b30dd73b003f2725b6e2370e4118cc5d282bbb3d
 }
