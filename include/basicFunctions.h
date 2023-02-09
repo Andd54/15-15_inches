@@ -14,9 +14,6 @@ void base_brake(){
  //define rotational angle:
  //Counter clockwise: positive
  //Clockwise: negative
-void rotate(){
-//empty function that needs more #thinking
-}
 void move(double driveLeft, double driveRight){
   double minPower = 7.0;
   if(fabs(driveLeft)<minPower){
@@ -39,7 +36,24 @@ void move(double driveLeft, double driveRight){
   BaseLM.setVelocity(driveLeft,percent);
   BaseRM.setVelocity(driveRight,percent);
 }
+void drive_left_rpm(double wheel_v){
+  BaseLB.setVelocity(wheel_v,rpm);
+  BaseLF.setVelocity(wheel_v,rpm);
+  BaseLM.setVelocity(wheel_v,rpm);
+}
+void drive_right_rpm(double wheel_v){
+  BaseRM.setVelocity(wheel_v,rpm);
+  BaseRF.setVelocity(wheel_v,rpm);
+  BaseRB.setVelocity(wheel_v,rpm);
+}
+void chassis_rotate(double rot_velocity){
+  double lin_v = rot_velocity*(chassis_wid/2)/360;
+  double wheel_v = lin_v/(wheel_rad)*60;//rpm as unit
+  drive_left_rpm(-wheel_v);
+  drive_right_rpm(wheel_v);
+}
 void turnLeft(double rot_angle){
+  iner.calibrate();
   double error;
   double lastError = 0;
   double integral = 0;
@@ -53,7 +67,8 @@ void turnLeft(double rot_angle){
     integral += error;
     derivative = error - lastError;
     power = kP * error + kI * integral + kD * derivative;
-    
+    power = power*50;
+    //change in units
     //Add related moving mechanism to keep rotate
     
     
