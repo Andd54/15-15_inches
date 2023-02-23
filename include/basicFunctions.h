@@ -53,28 +53,3 @@ void chassis_rotate(double rot_velocity){
   drive_left_rpm(-wheel_v);
   drive_right_rpm(wheel_v);
 }
-void turnLeft(double rot_angle){
-  iner.calibrate();
-  double error;
-  double lastError = 0;
-  double integral = 0;
-  double derivative;
-  double power;
-
-  double tolerence = 5;// tolerence for terminating the loop
-
-  while (fabs(error)>tolerence){
-    error = rot_angle - iner.rotation(rotationUnits::deg);
-    integral += error;
-    derivative = error - lastError;
-    power = kP * error + kI * integral + kD * derivative;
-    power = power*50;
-    //change in units
-    //Add related moving mechanism to keep rotate
-    
-    
-    lastError = error;
-    
-    vex::task::sleep(20);
-  }
-}
