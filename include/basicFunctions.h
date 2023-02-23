@@ -53,3 +53,15 @@ void chassis_rotate(double rot_velocity){
   drive_left_rpm(-wheel_v);
   drive_right_rpm(wheel_v);
 }
+
+double velocity_to_rpm(double vel) {
+  return 60*vel/wheel_circumference;
+}
+
+double rpm_to_velocity(double rpm) {
+  return wheel_circumference*rpm/60;
+}
+
+double acceleration_convertor(double Gs) {
+  return Gs*386.2205;
+}
