@@ -11,6 +11,8 @@ extern motor BaseLF;
 extern motor BaseLM;
 extern motor BaseLB;
 extern inertial iner;
+extern rotation rot_left;
+extern rotation rot_right;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  * 
