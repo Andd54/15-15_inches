@@ -21,6 +21,13 @@ inertial iner = inertial(PORT10);
 rotation rot_left = rotation(PORT4, false);
 rotation rot_right = rotation(PORT5, true);
 // rotation sensors for left and right wheels
+motor catapult_left = motor(PORT11, ratio18_1, true);
+motor catapult_right = motor(PORT12, ratio18_1, false);
+// motor for catapult
+encoder catapult_left_encoder = encoder(Brain.ThreeWirePort.A);
+encoder catapult_right_encoder = encoder(Brain.ThreeWirePort.B);
+// encoder for catapult motors
+pneumatics catapower = pneumatics(Brain.ThreeWirePort.C);
 // VEXcode generated functions
 // define variable for remote controller enable/disable
 bool RemoteControlCodeEnabled = true;

@@ -53,6 +53,18 @@ void chassis_rotate(double rot_velocity){
   drive_left_rpm(-wheel_v);
   drive_right_rpm(wheel_v);
 }
+void catapult_reset() {
+  catapult_left_encoder.resetRotation();
+  catapult_right_encoder.resetRotation();
+}
+void catapult_full_rotation() {
+  catapult_left.rotateTo(360*catapult_ratio, deg, 200, rpm);
+  catapult_right.rotateTo(360*catapult_ratio, deg, 200, rpm);
+}
+void shoot(bool power=false) {
+  catapower.set(power); //comment this line out if no pneumatics
+  catapult_full_rotation();
+}
 
 double velocity_to_rpm(double vel) {
   return 60*vel/wheel_circumference;

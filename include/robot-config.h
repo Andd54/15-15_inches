@@ -13,6 +13,11 @@ extern motor BaseLB;
 extern inertial iner;
 extern rotation rot_left;
 extern rotation rot_right;
+extern motor catapult_left;
+extern motor catapult_right;
+extern encoder catapult_left_encoder;
+extern encoder catapult_right_encoder;
+extern pneumatics catapower;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  * 
