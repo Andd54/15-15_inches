@@ -18,17 +18,19 @@ motor BaseLB = motor(PORT6, ratio18_1, false);
 // 'L' stands for left, 'R' stands for right; 'F' stands for front, 'M' stands for middle' 'B' stands for back
 inertial iner = inertial(PORT10);
 //above is the motors for chassis
-rotation rot_left = rotation(PORT4, false);
 rotation rot_right = rotation(PORT5, true);
+rotation rot_left = rotation(PORT4, false);
 // rotation sensors for left and right wheels
-motor catapult_left = motor(PORT11, ratio18_1, true);
-motor catapult_right = motor(PORT12, ratio18_1, false);
+motor catapult_right = motor(PORT12, ratio18_1, true);
+motor catapult_left = motor(PORT11, ratio18_1, false);
 // motor for catapult
 encoder catapult_left_encoder = encoder(Brain.ThreeWirePort.A);
 encoder catapult_right_encoder = encoder(Brain.ThreeWirePort.B);
 // encoder for catapult motors
 pneumatics catapower = pneumatics(Brain.ThreeWirePort.C);
 // VEXcode generated functions
+motor intake_right = motor(PORT13, ratio18_1, false);
+motor intake_left = motor(PORT14, ratio18_1, false);
 // define variable for remote controller enable/disable
 bool RemoteControlCodeEnabled = true;
 

@@ -18,6 +18,8 @@ extern motor catapult_right;
 extern encoder catapult_left_encoder;
 extern encoder catapult_right_encoder;
 extern pneumatics catapower;
+extern motor intake_left;
+extern motor intake_right;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  * 
