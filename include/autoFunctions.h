@@ -1,6 +1,6 @@
 #include "inertial.h"
 
-void drive_distance(double distance, double speed) { // take in distance to travel in inches and time in seconds
+void drive_distance(double distance, double speed = 1) { // take in distance to travel in inches and time in seconds
   iner.calibrate();
   double error;
   double lastError = 0;
