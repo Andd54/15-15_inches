@@ -1,5 +1,5 @@
 //basic moving mechanism
-#include<basicFunctions.h>
+#include<inertial.h>
 void Drive(){
   while(true){ 
     double leftPos = Controller1.Axis4.position();

@@ -6,7 +6,8 @@ double x_accel;
 double y_accel;
 double x_velocity;
 double y_velocity;
-
+double x_position;
+double y_position;
 
 
 void inertial() {
@@ -21,6 +22,8 @@ void inertial() {
     double y_accel_inch = acceleration_convertor(y_accel);
     x_velocity += x_accel_inch*(0.02);
     y_velocity += y_accel_inch*(0.02);
+    x_position += x_velocity*(0.02);
+    y_position += y_velocity*(0.02);
     vex::task::sleep(20);
   }
 
