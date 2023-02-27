@@ -1,4 +1,4 @@
-#include "basicFunctions.h"
+#include "inertial.h"
 
 void drive_distance(double distance, double speed) { // take in distance to travel in inches and time in seconds
   iner.calibrate();
@@ -16,7 +16,7 @@ void drive_distance(double distance, double speed) { // take in distance to trav
 
   do {
     //record time
-    error = distance - driven; // get driven later
+    error = distance - y_position; // get driven later
     integral += error;
     derivative = error - lastError;
     power = kP * error + kI * integral + kD * derivative;
