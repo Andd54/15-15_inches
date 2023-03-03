@@ -32,6 +32,8 @@ pneumatics catapower = pneumatics(Brain.ThreeWirePort.C);
 motor intake_right = motor(PORT13, ratio18_1, false);
 motor intake_left = motor(PORT14, ratio18_1, false);
 // define variable for remote controller enable/disable
+
+limit catapult_stop = limit(Brain.ThreeWirePort.D);
 bool RemoteControlCodeEnabled = true;
 
 /**

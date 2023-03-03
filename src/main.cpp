@@ -18,7 +18,7 @@
 using namespace vex;
 competition Competition;
 void autonomous(void){
-  //insert function in autonomous.h here
+  _autonomous();
 }
 void usercontrol(void){
   while(1){

@@ -60,8 +60,10 @@ void catapult_reset() {
 }
 
 void catapult_full_rotation() {
-  catapult_left.rotateTo(360*catapult_ratio, deg, 200, rpm);
-  catapult_right.rotateTo(360*catapult_ratio, deg, 200, rpm);
+  if (!catapult_stop) {
+    catapult_left.rotateTo(360*catapult_ratio, deg, 200, rpm);
+    catapult_right.rotateTo(360*catapult_ratio, deg, 200, rpm);
+  }
 }
 
 void shoot(bool power=false) {
