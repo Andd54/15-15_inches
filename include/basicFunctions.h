@@ -96,3 +96,8 @@ double rpm_to_velocity(double rpm) {
 double acceleration_convertor(double Gs) {
   return Gs*386.2205;
 }
+
+void spin(){
+  intake_left.rotateFor(180, degrees, 50, rpm);
+  intake_right.rotateFor(180, degrees, 50, rpm);
+}
