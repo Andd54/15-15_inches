@@ -18,12 +18,11 @@
 using namespace vex;
 competition Competition;
 void autonomous(void){
-  _autonomous();
+  trial();
 }
 void usercontrol(void){
   while(1){
     Drive();
-    wait(20,msec);
   }
 }
 int main() {
@@ -32,7 +31,5 @@ int main() {
   Competition.autonomous(autonomous);
   Competition.drivercontrol(usercontrol);
   
-  while(true){
-    wait(100,msec);
-  }
+  
 }

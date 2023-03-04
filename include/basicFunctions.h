@@ -29,7 +29,6 @@ void move(double driveLeft, double driveRight){
   BaseRF.spin(forward);
   BaseLM.spin(forward);
   BaseRM.spin(forward);
-  Brain.Timer.reset();
   BaseLB.setVelocity(driveLeft,percent);
   BaseRB.setVelocity(driveRight,percent);
   BaseLF.setVelocity(driveLeft,percent);
@@ -38,14 +37,14 @@ void move(double driveLeft, double driveRight){
   BaseRM.setVelocity(driveRight,percent);
 }
 void drive_left_rpm(double wheel_v){
-  BaseLB.setVelocity(wheel_v,rpm);
-  BaseLF.setVelocity(wheel_v,rpm);
-  BaseLM.setVelocity(wheel_v,rpm);
+  BaseLB.spin(forward,wheel_v,rpm);
+  BaseLM.spin(forward,wheel_v,rpm);
+  BaseLF.spin(forward,wheel_v,rpm);
 }
 void drive_right_rpm(double wheel_v){
-  BaseRM.setVelocity(wheel_v,rpm);
-  BaseRF.setVelocity(wheel_v,rpm);
-  BaseRB.setVelocity(wheel_v,rpm);
+  BaseRB.spin(forward,wheel_v,rpm);
+  BaseRM.spin(forward,wheel_v,rpm);
+  BaseRF.spin(forward,wheel_v,rpm);
 }
 void chassis_rotate(double rot_velocity){
   double lin_v = rot_velocity*(chassis_wid/2)/360;
@@ -102,4 +101,8 @@ double acceleration_convertor(double Gs) {
 void spin(){
   intake_left.rotateFor(180, degrees, 50, rpm);
   intake_right.rotateFor(180, degrees, 50, rpm);
+}  
+double motor_to_wheel(int deg){
+  double result = deg*48/36;
+  return 2*M_PI*result*wheel_rad;
 }
