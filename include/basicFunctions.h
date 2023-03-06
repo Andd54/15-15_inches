@@ -54,6 +54,16 @@ void chassis_rotate(double rot_velocity){
   drive_right_rpm(wheel_v);
 }
 
+void drive_for(double speed, double time) {
+  BaseRB.spinFor(time, seconds, speed, rpm);
+  BaseRM.spinFor(time, seconds, speed, rpm);
+  BaseRF.spinFor(time, seconds, speed, rpm);
+  
+  BaseLB.spinFor(time, seconds, speed, rpm);
+  BaseLM.spinFor(time, seconds, speed, rpm);
+  BaseLF.spinFor(time, seconds, speed, rpm);
+}
+
 void catapult_reset() {
   catapult_left_encoder.resetRotation();
   catapult_right_encoder.resetRotation();
@@ -64,6 +74,8 @@ void catapult_full_rotation() {
     catapult_left.rotateTo(360*catapult_ratio, deg, 200, rpm);
     catapult_right.rotateTo(360*catapult_ratio, deg, 200, rpm);
   }
+  catapult_left.resetPosition();
+  catapult_right.resetPosition();
 }
 
 void shoot(bool power=false) {
@@ -71,15 +83,24 @@ void shoot(bool power=false) {
   catapult_full_rotation();
 }
 
-void intake() {
-  intake_left.rotateFor(500, msec, 50, rpm);
-  intake_right.rotateFor(500, msec, 50, rpm);
-}
+// void intake() {
+//   intake_left.rotateFor(500, msec, 50, rpm);
+//   intake_right.rotateFor(500, msec, 50, rpm);
+// }
 
-void intake(bool on) {
-  if(on) {
-    intake_left.setVelocity(50, rpm);
-    intake_right.setVelocity(50, rpm);
+void intake(bool fwd, bool go) {
+  if(fwd) {
+    intake_left.spin(forward);
+    intake_right.spin(forward);
+  }
+  else {
+    intake_left.spin(reverse);
+    intake_right.spin(reverse);
+  }
+  if (go) {
+    Brain.Timer.reset();
+    intake_left.setVelocity(200, rpm);
+    intake_right.setVelocity(200, rpm);
   }
   else {
     intake_left.stop();

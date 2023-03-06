@@ -21,6 +21,8 @@ extern pneumatics catapower;
 extern motor intake_left;
 extern motor intake_right;
 extern limit catapult_stop;
+extern motor expansion;
+extern motor expansion2;
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Pro.
  * 
