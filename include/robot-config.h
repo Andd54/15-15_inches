@@ -13,6 +13,7 @@ extern motor BaseLB;
 extern inertial iner;
 extern rotation rot_left;
 extern rotation rot_right;
+extern rotation rot_back;
 extern motor catapult_left;
 extern motor catapult_right;
 extern encoder catapult_left_encoder;

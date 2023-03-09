@@ -20,6 +20,7 @@ inertial iner = inertial(PORT20);
 //above is the motors for chassis
 rotation rot_right = rotation(PORT5, true);
 rotation rot_left = rotation(PORT4, false);
+rotation rot_back = rotation(PORT9, true);
 // rotation sensors for left and right wheels
 motor catapult_right = motor(PORT12, ratio18_1, true);
 motor catapult_left = motor(PORT11, ratio18_1, false);
